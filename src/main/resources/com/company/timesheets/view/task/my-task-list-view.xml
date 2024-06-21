@@ -38,6 +38,7 @@
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createTimeEntryBtn" action="tasksDataGrid.createTimeEntry"/>
             <button id="readBtn" action="tasksDataGrid.read"/>
             <simplePagination id="pagination" dataLoader="tasksDl"/>
         </hbox>
@@ -47,6 +48,11 @@
                   dataContainer="tasksDc"
                   columnReorderingAllowed="true">
             <actions>
+                <action id="createTimeEntry"
+                        text="msg://action.createTimeEntry.text"
+                        icon="PLUS"
+                        type="list_itemTracking"
+                        actionVariant="PRIMARY"/>
                 <action id="read" type="list_read"/>
             </actions>
             <columns resizable="true">
