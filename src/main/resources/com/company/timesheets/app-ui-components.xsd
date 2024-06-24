@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://company.com/schema/app-ui-components.xsd"
+           elementFormDefault="qualified"
+           targetNamespace="http://company.com/schema/app-ui-components.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:layout="http://jmix.io/schema/flowui/layout">
+
+    <xs:element name="contactInformationFragment">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="layout:baseComponent">
+                    <xs:attribute name="dataContainer" type="xs:string"/>
+
+                    <xs:attributeGroup ref="layout:hasSize"/>
+                    <xs:attributeGroup ref="layout:hasEnabled"/>
+                    <xs:attributeGroup ref="layout:hasClassNames"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

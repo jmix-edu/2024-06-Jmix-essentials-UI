@@ -14,7 +14,6 @@
                     <property name="role" fetchPlan="_base"/>
                 </property>
             </fetchPlan>
-            <collection id="tasksDc" property="tasks"/>
             <collection id="participantsDc" property="participants"/>
             <loader/>
         </instance>
@@ -22,6 +21,14 @@
             <loader id="clientsDl" readOnly="true">
                 <query>
                     <![CDATA[select e from ts_Client e]]>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="tasksDc" class="com.company.timesheets.entity.Task">
+            <loader id="tasksDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from ts_Task e]]>
                 </query>
             </loader>
             <fetchPlan extends="_base"/>
@@ -66,6 +73,7 @@
                         <button id="taskCreateBtn" action="tasksDataGrid.create"/>
                         <button id="taskEditBtn" action="tasksDataGrid.edit"/>
                         <button id="taskRemoveBtn" action="tasksDataGrid.remove"/>
+                        <simplePagination id="tasksPagination" dataLoader="tasksDl" itemsPerPageDefaultValue="3"/>
                     </hbox>
                     <dataGrid id="tasksDataGrid"
                               dataContainer="tasksDc"

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://allTasksListView.title"
+      focusComponent="tasksDataGrid">
+    <data>
+        <collection id="tasksDc"
+                    class="com.company.timesheets.entity.Task">
+            <fetchPlan extends="_base"/>
+            <loader id="tasksDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from ts_Task e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <propertyFilter component="propertyFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <propertyFilter id="propertyFilter"
+                        dataLoader="tasksDl" property="name"
+                        operation="CONTAINS"
+                        labelVisible="false"
+                        width="100%" maxWidth="30em">
+            <textField id="filterField"
+                       placeholder="Start typing..."
+                       clearButtonVisible="true">
+                <prefix>
+                    <icon icon="SEARCH"/>
+                </prefix>
+            </textField>
+        </propertyFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createBtn" action="tasksDataGrid.create"/>
+            <button id="editBtn" action="tasksDataGrid.edit"/>
+            <button id="removeBtn" action="tasksDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="tasksDl"/>
+        </hbox>
+        <dataGrid id="tasksDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="tasksDc"
+                  columnReorderingAllowed="true">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column property="name"/>
+                <column property="description"/>
+                <column property="project"/>
+                <column property="status"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectBtn" action="selectAction"/>
+            <button id="discardBtn" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

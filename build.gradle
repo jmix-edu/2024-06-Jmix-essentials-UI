@@ -16,6 +16,7 @@ version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         url 'https://nexus.jmix.io/repository/public'
     }
@@ -44,6 +45,8 @@ dependencies {
     }
     testImplementation 'io.jmix.flowui:jmix-flowui-test-assist'
     implementation 'org.postgresql:postgresql'
+
+    implementation 'com.company:my-theme:1.0-SNAPSHOT'
 }
 
 test {
