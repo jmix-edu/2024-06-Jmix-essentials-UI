@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <mainView xmlns="http://jmix.io/schema/flowui/main-view"
+          xmlns:app="http://company.com/schema/app-ui-components.xsd"
           title="msg://MainView.title">
     <actions>
         <action id="logout" type="logout"/>
@@ -12,6 +13,7 @@
                               themeNames="contrast"
                               ariaLabel="msg://drawerToggle.ariaLabel"/>
                 <h1 id="viewTitle" classNames="jmix-main-view-title"/>
+                <app:themeToggle id="themeToggle"/>
             </header>
         </navigationBar>
         <drawerLayout>

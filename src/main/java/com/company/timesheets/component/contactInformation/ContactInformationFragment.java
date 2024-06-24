@@ -1,4 +1,4 @@
-package com.company.timesheets.component;
+package com.company.timesheets.component.contactInformation;
 
 import com.company.timesheets.entity.ContactInformation;
 import com.vaadin.flow.component.Composite;

@@ -1,6 +1,5 @@
-package com.company.timesheets.component;
+package com.company.timesheets.component.contactInformation;
 
-import com.company.timesheets.component.ContactInformationFragment;
 import com.company.timesheets.entity.ContactInformation;
 import io.jmix.flowui.exception.GuiDevelopmentException;
 import io.jmix.flowui.model.InstanceContainer;

@@ -1,4 +1,4 @@
-package com.company.timesheets.component;
+package com.company.timesheets.component.contactInformation;
 
 import io.jmix.flowui.kit.meta.StudioComponent;
 import io.jmix.flowui.kit.meta.StudioProperty;

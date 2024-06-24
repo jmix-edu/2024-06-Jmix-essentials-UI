@@ -1,13 +1,14 @@
 package com.company.timesheets;
 
-import com.company.timesheets.component.ContactInformationFragment;
-import com.company.timesheets.component.ContactInformationFragmentLoader;
+import com.company.timesheets.component.contactInformation.ContactInformationFragment;
+import com.company.timesheets.component.contactInformation.ContactInformationFragmentLoader;
+import com.company.timesheets.component.themetoggle.ThemeToggle;
+import com.company.timesheets.component.themetoggle.ThemeToggleLoader;
 import com.google.common.base.Strings;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
-import com.vaadin.flow.theme.lumo.Lumo;
 import io.jmix.flowui.sys.registration.ComponentRegistration;
 import io.jmix.flowui.sys.registration.ComponentRegistrationBuilder;
 import org.slf4j.LoggerFactory;
@@ -63,6 +64,13 @@ public class TimesheetsApplication implements AppShellConfigurator {
     public ComponentRegistration contactInformationFragment() {
         return ComponentRegistrationBuilder.create(ContactInformationFragment.class)
                 .withComponentLoader("contactInformationFragment", ContactInformationFragmentLoader.class)
+                .build();
+    }
+
+    @Bean
+    public ComponentRegistration themeToggle() {
+        return ComponentRegistrationBuilder.create(ThemeToggle.class)
+                .withComponentLoader("themeToggle", ThemeToggleLoader.class)
                 .build();
     }
 }
